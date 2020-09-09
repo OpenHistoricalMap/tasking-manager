@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactPlaceholder from 'react-placeholder';
 import 'react-placeholder/lib/reactPlaceholder.css';
 import { FormattedMessage, FormattedNumber } from 'react-intl';
@@ -83,6 +83,8 @@ export const NotificationResults = (props) => {
 };
 
 const NotificationCards = (props) => {
+  const selectedState = useState([2]);
+
   if (!props || !props.pageOfCards || props.pageOfCards.length === 0) {
     return (
       <div className="mb3 blue-grey">
@@ -101,11 +103,37 @@ const NotificationCards = (props) => {
     );
   }
 
-  return filteredCards.map((card, n) =>
-    props.useMiniCard ? (
-      <NotificationCardMini {...card} key={n} />
-    ) : (
-      <NotificationCard {...card} key={n} retryFn={props.retryFn} />
-    ),
+  const Buttons = ({ selectedState }) => {
+    const [selected, _] = selectedState;
+
+    let buttonClass = `${
+      selected.length === 0 ? 'bg-blue-grey' : 'bg-red'
+    } pv2 ph3 white f5 ba b--tan`;
+
+    return (
+      <div className="mb2">
+        <button className={buttonClass}>
+          <FormattedMessage {...messages.delete} />
+        </button>
+      </div>
+    );
+  };
+
+  return (
+    <div>
+      <Buttons selectedState={selectedState} />
+      {filteredCards.map((card, n) =>
+        props.useMiniCard ? (
+          <NotificationCardMini {...card} key={n} />
+        ) : (
+          <NotificationCard
+            {...card}
+            key={n}
+            retryFn={props.retryFn}
+            selectedState={selectedState}
+          />
+        ),
+      )}
+    </div>
   );
 };

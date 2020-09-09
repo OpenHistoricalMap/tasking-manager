@@ -62,6 +62,7 @@ export function NotificationCard({
   read,
   sentDate,
   retryFn,
+  selectedState,
 }: Object) {
   const readStyle = read ? '' : 'bl bw2 br2 b2 b--red ';
   const token = useSelector((state) => state.auth.get('token'));
@@ -79,6 +80,26 @@ export function NotificationCard({
 
   const replacedSubject = subject.replace('task=', 'search=');
   const Navigate = () => navigate(`/inbox/message/${messageId}/${location.search}`);
+
+  const CheckBox = ({ selectedState }) => {
+    const [selected, setSelected] = selectedState;
+    return (
+      <div
+        className={`${
+          selected.includes(messageId) ? 'bg-blue-grey' : 'bg-white'
+        } w1 h1 ba b--blue-grey`}
+        onClick={() => {
+          let copy = selected;
+          if (copy.includes(messageId)) {
+            copy = copy.filter((s) => s !== messageId);
+          } else {
+            copy = [...copy, messageId];
+          }
+          setSelected(copy);
+        }}
+      ></div>
+    );
+  };
 
   return (
     <article
@@ -114,25 +135,30 @@ export function NotificationCard({
           }}
         >
           {!read && (
-            <>
+            <div className="fl w1 mv1 pv1">
               <FormattedMessage {...messages.markAsRead}>
                 {(msg) => (
                   <EyeIcon
                     onClick={() => setMessageAsRead(messageId)}
                     style={{ width: '20px', height: '20px' }}
-                    className={`fl dn dib-ns h1 w1 pr1 nr4 mv1 pv1 hover-red blue-grey`}
+                    className={`dn dib-ns h1 w1 nr4 hover-red blue-grey`}
                     data-tip={msg}
                   />
                 )}
               </FormattedMessage>
               <ReactTooltip />
-            </>
+            </div>
           )}
-          <DeleteButton
-            className={`fr bg-transparent bw0 w2 h2 lh-copy overflow-hidden`}
-            showText={false}
-            onClick={() => deleteNotification(messageId)}
-          />
+          <div className="fl w1 mr3">
+            <DeleteButton
+              className="bg-transparent bw0 w2 h2 lh-copy overflow-hidden"
+              showText={false}
+              onClick={() => deleteNotification(messageId)}
+            />
+          </div>
+          <div className="fl mt2">
+            <CheckBox selectedState={selectedState} />
+          </div>
         </div>
         {messageType !== null ? (
           <div className={`fr-l di-l dn f7 truncate w4 pa1 ma1`} title={messageType}>
