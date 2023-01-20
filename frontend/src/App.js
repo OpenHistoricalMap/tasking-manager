@@ -28,7 +28,7 @@ import {
   MoreFilters,
   ProjectDetailPage,
 } from './views/project';
-import { Authorized } from './views/authorized';
+import { Authorized, OSMTeamsAuthorized } from './views/authorized';
 import { Login } from './views/login';
 import { Welcome } from './views/welcome';
 import { Settings } from './views/settings';
@@ -118,6 +118,7 @@ let App = (props) => {
                     <NotificationPageIndex path="/" />
                   </NotificationsPage>
                   <Authorized path="authorized" />
+                  <OSMTeamsAuthorized path="osmteams-authorized" />
                   <Login path="login" />
                   <Welcome path="welcome" />
                   <Settings path="settings" />

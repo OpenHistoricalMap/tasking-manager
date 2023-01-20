@@ -5,6 +5,7 @@ import { FormattedMessage } from 'react-intl';
 import { Form } from 'react-final-form';
 
 import messages from './messages';
+import { OSM_TEAMS_CLIENT_ID } from '../config';
 import { useFetch } from '../hooks/UseFetch';
 import { useEditTeamAllowed } from '../hooks/UsePermissions';
 import { useSetTitleTag } from '../hooks/UseMetaTags';
@@ -29,6 +30,9 @@ import { Projects } from '../components/teamsAndOrgs/projects';
 import { FormSubmitButton, CustomButton } from '../components/button';
 import { DeleteModal } from '../components/deleteModal';
 import { NotFound } from './notFound';
+import { TeamSync } from '../components/teamsAndOrgs/teamSync';
+
+const ENABLE_OSM_TEAMS_INTEGRATION = Boolean(OSM_TEAMS_CLIENT_ID);
 
 export function ManageTeams() {
   useSetTitleTag('Manage teams');
@@ -174,7 +178,7 @@ export function CreateTeam() {
                     members={managers}
                     resetMembersFn={setManagers}
                     creationMode={true}
-                  />
+                    />
                 </div>
                 <div className="mb3">
                   <Members
@@ -186,6 +190,11 @@ export function CreateTeam() {
                     type={'members'}
                   />
                 </div>
+                {ENABLE_OSM_TEAMS_INTEGRATION && (
+                  <div className="mb3">
+                    <TeamSync />
+                  </div>
+                )}
               </div>
             </div>
             <div className="fixed left-0 right-0 bottom-0 cf bg-white h3">
@@ -350,6 +359,7 @@ export function EditTeam(props) {
           type="members"
           memberJoinTeamError={memberJoinTeamError}
           setMemberJoinTeamError={setMemberJoinTeamError}
+          enableTeamsIntegration={ENABLE_OSM_TEAMS_INTEGRATION}
         />
         <div className="h1"></div>
         <JoinRequests

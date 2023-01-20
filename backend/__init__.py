@@ -42,6 +42,10 @@ osm = OAuth2Session(
     scope=EnvironmentConfig.OAUTH_SCOPE,
     redirect_uri=EnvironmentConfig.OAUTH_REDIRECT_URI,
 )
+osm_teams = OAuth2Session(
+    client_id=EnvironmentConfig.OSM_TEAMS_CLIENT_ID,
+    scope="openid offline",
+)
 
 # Import all models so that they are registered with SQLAlchemy
 from backend.models.postgis import *  # noqa
@@ -294,6 +298,8 @@ def add_api_endpoints(app):
         SystemAuthenticationEmailAPI,
         SystemAuthenticationLoginAPI,
         SystemAuthenticationCallbackAPI,
+        OSMTeamsAuthenticationCallbackAPI,
+        OSMTeamsAuthenticationAPI
     )
     from backend.api.system.applications import SystemApplicationsRestAPI
     from backend.api.system.image_upload import SystemImageUploadRestAPI
@@ -819,7 +825,13 @@ def add_api_endpoints(app):
         SystemAuthenticationLoginAPI, format_url("system/authentication/login/")
     )
     api.add_resource(
+        OSMTeamsAuthenticationAPI, format_url("system/osm-teams-authentication/login/")
+    )
+    api.add_resource(
         SystemAuthenticationCallbackAPI, format_url("system/authentication/callback/")
+    )
+    api.add_resource(
+        OSMTeamsAuthenticationCallbackAPI, format_url("system/osm-teams-authentication/callback/")
     )
     api.add_resource(
         SystemAuthenticationEmailAPI, format_url("system/authentication/email/")

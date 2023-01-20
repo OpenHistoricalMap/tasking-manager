@@ -78,6 +78,7 @@ class Team(db.Model):
     visibility = db.Column(
         db.Integer, default=TeamVisibility.PUBLIC.value, nullable=False
     )
+    osm_teams_id = db.Column(db.BigInteger, nullable=True)
 
     organisation = db.relationship(Organisation, backref="teams")
 

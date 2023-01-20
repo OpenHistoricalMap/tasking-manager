@@ -491,6 +491,26 @@ export default defineMessages({
     id: 'teamsAndOrgs.management.teams.messages.waiting_approval',
     defaultMessage: 'Your request to join this team is waiting for approval.',
   },
+  syncWithOSMTeams: {
+    id: 'management.teams.syncOSMTeams',
+    defaultMessage: 'Sync with OSM Teams',
+  },
+  osmTeamsIntegrationDescription: {
+    id: 'management.teams.syncOSMTeams.description',
+    defaultMessage: 'Get members and managers from a team in the OSM Teams platform.',
+  },
+  sync: {
+    id: 'management.teams.sync.button',
+    defaultMessage: 'Sync',
+  },
+  connectOSMTeams: {
+    id: 'management.teams.sync.connect',
+    defaultMessage: 'Connect your OSM Teams account',
+  },
+  selectTeam: {
+    id: 'management.teams.sync.select',
+    defaultMessage: 'Select team',
+  },
   noProjectsFound: {
     id: 'management.projects.no_found',
     defaultMessage: "This {entity} doesn't have projects yet.",

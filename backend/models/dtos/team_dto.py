@@ -90,6 +90,7 @@ class TeamDetailsDTO(Model):
     """ Describes JSON model for a team """
     team_id = IntType(serialized_name="teamId")
     organisation_id = IntType(required=True)
+    osm_teams_id = IntType(required=False)
     organisation = StringType(required=True)
     organisation_slug = StringType(serialized_name="organisationSlug")
     name = StringType(required=True)
@@ -127,6 +128,7 @@ class TeamDTO(Model):
         required=True, validators=[validate_team_visibility], serialize_when_none=False
     )
     members = ListType(ModelType(TeamMembersDTO))
+    osm_teams_id = IntType(required=False)
 
 
 class TeamsListDTO(Model):
@@ -145,6 +147,7 @@ class NewTeamDTO(Model):
     creator = LongType(required=True)
     organisation_id = IntType(required=True)
     name = StringType(required=True)
+    osm_teams_id = IntType()
     description = StringType()
     join_method = StringType(
         required=True,
@@ -161,6 +164,7 @@ class UpdateTeamDTO(Model):
 
     creator = LongType()
     team_id = IntType()
+    osm_teams_id = IntType()
     organisation = StringType()
     organisation_id = IntType()
     name = StringType()

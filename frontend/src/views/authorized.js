@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Redirect } from '@reach/router';
 import { connect } from 'react-redux';
-import { setAuthDetails } from '../store/actions/auth';
+import { setAuthDetails, setOSMTeamsDetails } from '../store/actions/auth';
 
 const useComponentWillMount = (fn) => {
   const willMount = useRef(true);
@@ -49,5 +49,44 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
+function OSMTeamsAuthorizedView(props) {
+  const [isReadyToRedirect, setIsReadyToRedirect] = useState(false);
+  const params = new URLSearchParams(props.location.search);
+
+  useComponentWillMount(() => {
+    let authCode = params.get('code');
+    let state = params.get('state');
+    if (authCode !== null) {
+      window.opener.authComplete(authCode, state);
+      window.close();
+      return;
+    }
+    const session_token = params.get('session_token');
+    const osmteams_oauth_token = params.get('access_token');
+    const refresh_token = params.get('refresh_token');
+    props.storeOSMTeamsToken(session_token, osmteams_oauth_token, refresh_token);
+    setIsReadyToRedirect(true);
+  });
+
+  const redirectUrl =
+    params.get('redirect_to')
+      ? params.get('redirect_to')
+      : '/manage/teams';
+
+  return <>{isReadyToRedirect ? <Redirect to={redirectUrl} noThrow /> : <div>redirecting</div>}</>;
+}
+
+const mapDispatchToPropsOSMTeams = (dispatch) => {
+  return {
+    storeOSMTeamsToken: (session_token, osmteams_oauth_token, refresh_token) =>
+      dispatch(setOSMTeamsDetails(session_token, osmteams_oauth_token, refresh_token)),
+  };
+};
+
 const Authorized = connect(mapStateToProps, mapDispatchToProps)(AuthorizedView);
-export { Authorized };
+const OSMTeamsAuthorized = connect(
+  mapStateToProps,
+  mapDispatchToPropsOSMTeams
+  )(OSMTeamsAuthorizedView);
+
+export { Authorized, OSMTeamsAuthorized };
