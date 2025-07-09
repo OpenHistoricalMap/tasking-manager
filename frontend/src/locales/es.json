@@ -33,7 +33,7 @@
   "mytasks.unlock": "desbloquear {time}",
   "mytasks.tasks.title": "Tarea #{task} · Proyecto #{project}",
   "mytasks.tasks.button.retry": "Procesar de nuevo",
-  "mytasks.tasks.comments.number": "{number, plural, one {# comentario} other {# comentarios}}",
+  "mytasks.tasks.comments.number": "{number, plural, one {# comentario} many {# comentarios} other {# comentarios}}",
   "deleteModal.status.processing": "Procesando",
   "deleteModal.status.success": "{type} borrado exitosamente.",
   "deleteModal.status.success.partners": "{type} borrado exitosamente.",
