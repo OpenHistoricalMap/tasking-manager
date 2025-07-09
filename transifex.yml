@@ -1,0 +1,10 @@
+filters:
+  - filter_type: dir
+    file_format: KEYVALUEJSON
+    source_file_extension: json
+    source_language: en
+    source_file_dir: frontend/src/locales/
+    translation_files_expression: 'frontend/src/locales/<lang>.json'
+
+settings:
+  pr_branch_name: transifex_<br_unique_id>
