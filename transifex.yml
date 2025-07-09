@@ -1,7 +1,6 @@
 filters:
   - filter_type: file
     file_format: KEYVALUEJSON
-    source_file_extension: json
     source_language: en
     source_file: 'frontend/src/locales/en.json'
     translation_files_expression: 'frontend/src/locales/<lang>.json'
