@@ -97,10 +97,13 @@ def get_application() -> FastAPI:
             else:
                 return await call_next(request)
 
+    allow_origins = settings.EXTRA_CORS_ORIGINS or ["*"]
+    allow_credentials = False if allow_origins == ["*"] else True
+
     _app.add_middleware(
         CORSMiddleware,
-        allow_origins=settings.EXTRA_CORS_ORIGINS,
-        allow_credentials=True,
+        allow_origins=allow_origins,
+        allow_credentials=allow_credentials,
         allow_methods=["*"],
         allow_headers=["*"],
         expose_headers=["Content-Disposition"],
