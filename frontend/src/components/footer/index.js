@@ -4,10 +4,7 @@ import { Link, matchRoutes, useLocation } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import {
   TwitterIcon,
-  FacebookIcon,
-  YoutubeIcon,
   GithubIcon,
-  InstagramIcon,
   ExternalLinkIcon,
 } from '../svgIcons';
 import messages from '../messages';
@@ -15,18 +12,12 @@ import { getMenuItemsForUser } from '../header';
 import {
   ORG_TWITTER,
   ORG_GITHUB,
-  ORG_INSTAGRAM,
-  ORG_FB,
-  ORG_YOUTUBE,
   ORG_PRIVACY_POLICY_URL,
 } from '../../config';
 import './styles.scss';
 
 const socialNetworks = [
   { link: ORG_TWITTER, icon: <TwitterIcon style={{ height: '20px', width: '20px' }} noBg /> },
-  { link: ORG_FB, icon: <FacebookIcon style={{ height: '20px', width: '20px' }} /> },
-  { link: ORG_YOUTUBE, icon: <YoutubeIcon style={{ height: '20px', width: '20px' }} /> },
-  { link: ORG_INSTAGRAM, icon: <InstagramIcon style={{ height: '20px', width: '20px' }} /> },
   { link: ORG_GITHUB, icon: <GithubIcon style={{ height: '20px', width: '20px' }} /> },
 ];
 
