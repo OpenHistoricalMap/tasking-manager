@@ -33,7 +33,7 @@
   "mytasks.unlock": "desbloquear {time}",
   "mytasks.tasks.title": "Tarefa #{task} · Projeto #{project}",
   "mytasks.tasks.button.retry": "Tentar novamente",
-  "mytasks.tasks.comments.number": "{number, plural, one {# comentário} other {# comentários}}",
+  "mytasks.tasks.comments.number": "{number, plural, one {# comentário} many {# comentários} other {# comentários}}",
   "deleteModal.status.processing": "A processar",
   "deleteModal.status.success": "{type} eliminado com sucesso.",
   "deleteModal.status.failure.projects": "Ocorreu um erro ao tentar eliminar este projeto.",

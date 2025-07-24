@@ -33,7 +33,7 @@
   "mytasks.unlock": "שחרור {time}",
   "mytasks.tasks.title": "משימה מס׳ {task} · מיזם מס׳ {project}",
   "mytasks.tasks.button.retry": "ניסיון חוזר",
-  "mytasks.tasks.comments.number": "{number, plural, one {הערה אחת} two {# הערות} many {# הערות} other {# הערות}}",
+  "mytasks.tasks.comments.number": "{number, plural, one {הערה אחת} two {# הערות} other {# הערות}}",
   "deleteModal.status.processing": "עיבוד",
   "deleteModal.status.success": "{type} נמחק בהצלחה.",
   "deleteModal.status.failure.projects": "אירעה שגיאה בניסיון מחיקת המיזם.",

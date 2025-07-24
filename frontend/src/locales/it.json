@@ -33,7 +33,7 @@
   "mytasks.unlock": "sblocca {time}",
   "mytasks.tasks.title": "Compito #{task} · progetto #{project}",
   "mytasks.tasks.button.retry": "Riprova",
-  "mytasks.tasks.comments.number": "{number, plural, one {# commento} other {# commenti}}",
+  "mytasks.tasks.comments.number": "{number, plural, one {# commento} many {# commenti} other {# commenti}}",
   "deleteModal.status.processing": "In lavorazione",
   "deleteModal.status.success": "{type} eliminato con successo.",
   "deleteModal.status.failure.projects": "Errore durante la cancellazione del progetto.",
