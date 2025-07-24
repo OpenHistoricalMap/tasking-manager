@@ -221,7 +221,7 @@
   "management.projects.create.trim_tasks.description.1": "Ajustar a grelha de tarefas à área de interesse (opcional).",
   "management.projects.create.trim_tasks.description.2": "Podes manter as tarefas atuais ou ajustar a área para o teu projeto. Isto pode levar algum tempo a ser executado.",
   "management.projects.create.trim_tasks.trim_to_aoi": "Ajusta as tarefas para definir a Área de Interesse exata para mapeamento.",
-  "management.projects.create.trim_tasks.tiny_tasks": "{number, plural, one {} main {} other {}}",
+  "management.projects.create.trim_tasks.tiny_tasks": "{number, plural, one {} many {} other {}}",
   "management.projects.create.trim_tasks.tiny_tasks.discard": "Descartar",
   "management.projects.create.task_sizes.description": "Tamanho geral da tarefa",
   "management.projects.create.task_sizes.smaller": "Menor",
