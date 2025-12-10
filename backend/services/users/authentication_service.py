@@ -81,7 +81,7 @@ class TokenAuthBackend(AuthenticationBackend):
                 decoded_token = base64.b64decode(credentials).decode("ascii")
             except UnicodeDecodeError:
                 logger.debug("Unable to decode token")
-                return False
+                return None
         except (ValueError, UnicodeDecodeError, binascii.Error):
             raise AuthenticationError("Invalid auth credentials")
 
