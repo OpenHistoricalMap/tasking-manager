@@ -59,7 +59,7 @@ export const OSM_SERVER_URL =
 export const OSM_SERVER_API_URL =
   process.env.REACT_APP_OSM_SERVER_API_URL || 'https://api.openstreetmap.org';
 export const ID_EDITOR_URL =
-  process.env.REACT_APP_ID_EDITOR_URL || 'https://www.openstreetmap.org/edit?editor=id&';
+  process.env.REACT_APP_ID_EDITOR_URL || 'https://www.openhistoricalmap.org/edit?editor=id&';
 export const POTLATCH2_EDITOR_URL =
   process.env.REACT_APP_POTLATCH2_EDITOR_URL ||
   'https://www.openstreetmap.org/edit?editor=potlatch2';
