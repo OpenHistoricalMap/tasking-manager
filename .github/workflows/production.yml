@@ -8,11 +8,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js 12
-      uses: actions/setup-node@v1
+    - uses: actions/checkout@v6
+    - name: Use Long-Term Support version of Node.js
+      uses: actions/setup-node@v6
       with:
-        node-version: '12'
+        node-version: 'lts/*'
     - name: Yarn Install
       run: |
         cd frontend && yarn cache clean && yarn install
@@ -51,8 +51,8 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_REGION: ${{ secrets.AWS_REGION }}
         SOURCE_DIR: "frontend/build"
-    - uses: actions/checkout@v2
-    - uses: actions/setup-python@v2
+    - uses: actions/checkout@v6
+    - uses: actions/setup-python@v6
       with:
         python-version: '3.7'
     - name: Install aws cli
