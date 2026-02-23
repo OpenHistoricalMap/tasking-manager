@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 
 import { fetchExternalJSONAPI } from '../network/genericJSONRequest';
 import api from './apiClient';
-import { OHSOME_STATS_API_URL, defaultChangesetComment, HOMEPAGE_STATS_API_URL } from '../config';
+import { OHSOME_STATS_API_URL, defaultChangesetComment } from '../config';
 
 const ohsomeProxyAPI = (url) => {
   const token = localStorage.getItem('token');
@@ -11,7 +11,7 @@ const ohsomeProxyAPI = (url) => {
 
 export const useSystemStatisticsQuery = () => {
   const fetchSystemStats = ({ signal }) => {
-    return api().get(HOMEPAGE_STATS_API_URL, {
+    return api().get(`system/statistics/`, {
       signal,
     });
   };

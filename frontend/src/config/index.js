@@ -8,10 +8,6 @@ export const OHSOME_STATS_BASE_URL =
 export const OHSOME_STATS_API_URL =
   process.env.REACT_APP_OHSOME_STATS_API_URL || 'https://stats.now.ohsome.org/api';
 
-// OHM HOMEPAGE STATS ENDPOINT
-export const HOMEPAGE_STATS_API_URL =
-  process.env.REACT_APP_HOMEPAGE_STATS_API_URL || 'https://tm-api.staging.openhistoricalmap.org/api/v4/system/statistics/';
-
 // APPLICATION SETTINGS
 export const DEFAULT_LOCALE = process.env.REACT_APP_DEFAULT_LOCALE || 'en';
 export const ENVIRONMENT = process.env.REACT_APP_ENVIRONMENT || '';
